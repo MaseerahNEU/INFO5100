@@ -338,10 +338,10 @@ public class CreateJPanel extends javax.swing.JPanel {
         user.setDegree2Start(jTextStart2.getText());
         user.setDegree2End(jTextEnd2.getText());
         
-        if(jPhotoButton.getText() == ""){
+        if(jPhotoLabel.getText() == "Photo:"){
                 JOptionPane.showMessageDialog(this, "Image is required");
             }
-            else{
+          else{
                 JOptionPane.showMessageDialog(this, "User created successfully");
             }
     }//GEN-LAST:event_jButton1ActionPerformed
