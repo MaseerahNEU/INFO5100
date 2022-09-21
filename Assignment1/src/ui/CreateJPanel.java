@@ -338,7 +338,12 @@ public class CreateJPanel extends javax.swing.JPanel {
         user.setDegree2Start(jTextStart2.getText());
         user.setDegree2End(jTextEnd2.getText());
         
-        JOptionPane.showMessageDialog(this, "User created successfully");
+        if(jPhotoButton.getText() == ""){
+                JOptionPane.showMessageDialog(this, "Image is required");
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "User created successfully");
+            }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPhotoButtonActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -352,10 +357,8 @@ public class CreateJPanel extends javax.swing.JPanel {
                     jPhotoLabel.setText(file.getSelectedFile().getAbsolutePath());
                     this.user.setPhoto(new ImageIcon(edit_image));
                 }
-                else
-                    JOptionPane.showMessageDialog(this,"Image required");
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Image is Required", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please select an Image", "Error", JOptionPane.ERROR_MESSAGE);
                 ex.printStackTrace();
             }
         }
