@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.io.File;
+import java.util.Date;
 import javax.swing.ImageIcon;
 
 /**
@@ -16,13 +18,13 @@ public class CreateEmployee {
     private int empID;
     private int age;
     private String gender;
-    private String startDate;
+    private Date startDate;
     private int level;
     private String teamInfo;
     private String title;
     private long phoneNum;
     private String email;
-    private ImageIcon photo; 
+    private File photo; 
 
     public String geteName() {
         return eName;
@@ -56,11 +58,11 @@ public class CreateEmployee {
         this.gender = gender;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
@@ -104,11 +106,11 @@ public class CreateEmployee {
         this.email = email;
     }
 
-    public ImageIcon getPhoto() {
+    public File getPhoto() {
         return photo;
     }
 
-    public void setPhoto(ImageIcon photo) {
+    public void setPhoto(File photo) {
         this.photo = photo;
     }
 }
