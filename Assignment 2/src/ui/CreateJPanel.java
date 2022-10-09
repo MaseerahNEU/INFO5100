@@ -6,7 +6,9 @@ package ui;
 
 import java.awt.Image;
 import java.io.File;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -25,7 +27,9 @@ public class CreateJPanel extends javax.swing.JPanel {
      * Creates new form CreateJPanel
      */
     
+    CreateEmployee newEmp;
     EmployeeList emp;
+    File chosenFile;
     public CreateJPanel(EmployeeList emp) {
         initComponents();
         this.emp = emp;
@@ -317,31 +321,28 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        ArrayList<CreateEmployee> Directory = this.emp.getDirectory();
+        this.newEmp = new CreateEmployee();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         
-        String EmpName = txtEName.getText();
-        int empID = Integer.parseInt(txtEmpID.getText());
-        int age = Integer.parseInt(txtAge.getText());
-        String gender = txtAge.getText();
-        Date startDate = dateFormat.format(datepickerStartDate.getDate());
-        int level = Integer.parseInt(txtLevel.getText());
-        String teamInfo = txtTeamInfo.getText();
-        String title = txtTitle.getText();
-        Long phoneNum = Long.parseLong(txtPhoneNum.getText());
-        String email = txtEmail.getText();
+        newEmp.seteName(txtEName.getText());
+        newEmp.setEmpID(Integer.parseInt(txtEmpID.getText()));
+        newEmp.setAge(Integer.parseInt(txtAge.getText()));
+        newEmp.setGender(txtGender.getText());
+        newEmp.setLevel(Integer.parseInt(txtLevel.getText()));
+        newEmp.setTeamInfo(txtTeamInfo.getText());
+        newEmp.setTitle(txtTitle.getText());
+        newEmp.setPhoneNum(Long.parseLong(txtPhoneNum.getText()));
+        newEmp.setEmail(txtEmail.getText());
+        newEmp.setPhoto(chosenFile);
+        try{
+        newEmp.setStartDate(dateFormat.parse(txtStartDate.getText()));
+        }
+        catch(ParseException e){
+            JOptionPane.showMessageDialog(this, "Enter information in correct format");
+        }
         
-        CreateEmployee saveEmp = emp.addEmp();
-        
-        saveEmp.seteName(EmpName);
-        saveEmp.setEmpID(empID);
-        saveEmp.setAge(age);
-        saveEmp.setGender(gender);
-        saveEmp.setStartDate(startDate);
-        saveEmp.setLevel(level);
-        saveEmp.setTeamInfo(teamInfo);
-        saveEmp.setTitle(title);
-        saveEmp.setPhoneNum(phoneNum);
-        saveEmp.setEmail(email);
+        Directory.add(newEmp);
         
         JOptionPane.showMessageDialog(this, "New Employee has been added!");
         
@@ -362,7 +363,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.showOpenDialog(null);
         File selectedFile = fileChooser.getSelectedFile();
-        //this.choosenFile = selectedFile;
+        this.chosenFile = selectedFile;
         //filename = selectedFile.getAbsolutePath();
         //jUploadedFileName.setText(filename);
         
