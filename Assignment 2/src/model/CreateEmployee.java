@@ -6,6 +6,7 @@ package model;
 
 import java.io.File;
 import java.util.Date;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
@@ -113,4 +114,7 @@ public class CreateEmployee {
     public void setPhoto(File photo) {
         this.photo = photo;
     }
+    
+    
 }
+

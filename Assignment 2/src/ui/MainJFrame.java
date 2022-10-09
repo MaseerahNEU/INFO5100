@@ -99,7 +99,7 @@ public class MainJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 861, Short.MAX_VALUE)
+                .addComponent(jSplitPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

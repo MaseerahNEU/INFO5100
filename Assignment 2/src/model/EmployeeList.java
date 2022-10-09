@@ -32,6 +32,10 @@ public class EmployeeList {
         directory.add(newEmp);
         return newEmp;
     }
+    
+    public void deleteEmployee(CreateEmployee emp) {
+        this.directory.remove(emp);
+    }
         
     
 }
