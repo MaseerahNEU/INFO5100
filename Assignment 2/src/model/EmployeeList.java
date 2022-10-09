@@ -8,34 +8,37 @@ import java.util.ArrayList;
 
 /**
  *
- * @author masee
+ * @author akshb
  */
 public class EmployeeList {
-    
-    private ArrayList<CreateEmployee> directory;
-    
-    public EmployeeList(){
-        this.directory = new ArrayList<CreateEmployee>();
+
+    private ArrayList<Employee> EmployeeList;
+
+    public EmployeeList() {
+        this.EmployeeList = new ArrayList<>();
+
     }
 
-    public ArrayList<CreateEmployee> getDirectory() {
-        return directory;
+    public ArrayList<Employee> getEmployeeList() {
+        return EmployeeList;
     }
 
-    public void setDirectory(ArrayList<CreateEmployee> directory) {
-        this.directory = directory;
+    public void setEmployeeList(ArrayList<Employee> EmployeeList) {
+        this.EmployeeList = EmployeeList;
     }
-    
-    public CreateEmployee addEmp(){
-        
-        CreateEmployee newEmp = new CreateEmployee();
-        directory.add(newEmp);
-        return newEmp;
+
+    @Override
+    public String toString() {
+        return "EmployeeList{" + "EmployeeList=" + EmployeeList + '}';
     }
-    
-    public void deleteEmployee(CreateEmployee emp) {
-        this.directory.remove(emp);
+
+    public void deleteEmployee(Employee selectedEmployee) {
+        this.EmployeeList.remove(selectedEmployee);
     }
-        
-    
+
+    public void updateEmployee(Employee newEmployee, Employee selectedEmployee) {
+        this.EmployeeList.remove(selectedEmployee);
+        this.EmployeeList.add(newEmployee);
+    }
+
 }
