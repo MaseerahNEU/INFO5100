@@ -19,9 +19,11 @@ public class ViewJPanel extends javax.swing.JPanel {
      */
     
     EmployeeList emp;
+    CreateEmployee newEmp;
     public ViewJPanel(EmployeeList emp) {
         initComponents();
         this.emp = emp;
+        newEmp = new CreateEmployee();
         fillTable();
     }
 
@@ -347,7 +349,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
         model.setRowCount(0);
-        for(CreateEmployee nEmp:emp.getDirectory()){
+        for(CreateEmployee nEmp : emp.getDirectory()){
          
             Object[] row = new Object[4];
             row[0] = nEmp.geteName();
